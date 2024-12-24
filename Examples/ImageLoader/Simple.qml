@@ -1,11 +1,11 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.12
-
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
 // ###########################################
-// [1][ADD] - import QTypes
-import "qrc:/QTypes" as QTypes
+// [1][ADD] - import QBootStrap
+import "qrc:/QBootStrap" as QBootStrap
+
 // [END] #####################################
 
 ColumnLayout {
@@ -19,9 +19,9 @@ ColumnLayout {
         // ###########################################
         // [2][ADD] - ImageSync
 
-        QTypes.ImageLoader {
+        QBootStrap.ImageLoader {
             id: image
-            source: "https://upload.wik_imedia.org/wikipedia/commons/a/a0/%27Greeley_Panorama%27_from_Opportunity%27s_Fifth_Martian_Winter%2C_PIA15689.jpg"
+            source: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/%22Houston%2C_Tranquility_base_here_%22_%28LROC563%29.tiff/lossy-page1-320px-%22Houston%2C_Tranquility_base_here_%22_%28LROC563%29.tiff.jpg"
         }
 
         Label {
@@ -34,8 +34,8 @@ ColumnLayout {
             interval: 3000
             running: true
             onTriggered: {
-                label.text = qsTr("Example loading a large image")
-                image.source = "https://upload.wikimedia.org/wikipedia/commons/a/a0/%27Greeley_Panorama%27_from_Opportunity%27s_Fifth_Martian_Winter%2C_PIA15689.jpg"
+                label.text = qsTr("Example loading a large image");
+                image.source = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/%22Houston%2C_Tranquility_base_here_%22_%28LROC563%29.tiff/lossy-page1-320px-%22Houston%2C_Tranquility_base_here_%22_%28LROC563%29.tiff.jpg";
             }
         }
     }

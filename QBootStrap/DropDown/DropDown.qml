@@ -1,5 +1,6 @@
-﻿import QtQuick 2.0
-import QtQuick.Controls 2.5
+﻿import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
 
 /*!
     \qmltype DropDown
@@ -10,7 +11,7 @@ import QtQuick.Controls 2.5
     Button{
         onClicked: dropDown.toggle()
 
-        QTypes.DropDown {
+        QBootStrap.DropDown {
             id: dropDown
 
             MenuItem {
@@ -34,26 +35,24 @@ Menu {
           \qmlproperty array DropDown::version
           string with version
       */
-    readonly property string version: "1.0.0"
+    readonly property string version: "2.0.0"
 
     // [signals] ------------------------------------
     /*!
           \qmlsignal DropDown::toggle()
           toggle the dropDown open or close the DropDown
       */
-    signal toggle();
-
+    signal toggle
 
     onToggle: {
         if (opened)
-            close()
+            close();
         else
-            open()
+            open();
     }
 
     onClosed: __private.toggle()
     onOpened: __private.toggle()
-
 
     // [private] -------------------------------
 
@@ -61,28 +60,27 @@ Menu {
         id: __private
 
         function rootObject(obj) {
-            return obj.parent ? rootObject(obj.parent) : obj
+            return obj.parent ? rootObject(obj.parent) : obj;
         }
 
         function changeChecked(status) {
             if (typeof root.parent.checked !== "undefined")
-                root.parent.checked = status
+                root.parent.checked = status;
         }
 
         function toggle() {
-
             if (root.opened) {
-                root.y = root.parent.height
-                root.x = 0
+                root.y = root.parent.height;
+                root.x = 0;
 
                 if (root.y != root.parent.height)
-                    root.y = -root.height
+                    root.y = -root.height;
 
                 if (root.x != 0)
-                    root.x = -(root.width-root.parent.width)
+                    root.x = -(root.width - root.parent.width);
             }
 
-            changeChecked(root.opened)
+            changeChecked(root.opened);
         }
     }
 }

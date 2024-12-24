@@ -1,30 +1,32 @@
-import QtQuick 2.12
-import QtQuick.Layouts 1.12
-import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.12
-import Qt.labs.settings 1.0
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtCore
 
-import "qrc:/QTypes" as QTypes
+import "qrc:/QBootStrap" as QBootStrap
 
 ApplicationWindow {
     id: window
-    width: 360
-    height: 520
+    width: 1280
+    height: 720
     visible: true
-    title: "QTypes"
+    title: "QBootStrap"
 
     header: ToolBar {
-        Material.foreground: "white"
 
         ToolButton {
-            QTypes.Icon {  name: stackView.depth > 1 ? "chevron_left" : "menu" }
+            QBootStrap.Icon {
+                name: stackView.depth > 1 ? "chevron_left" : "menu"
+                color: Material.accent
+            }
 
             onClicked: {
                 if (stackView.depth > 1) {
-                    stackView.pop()
-                    listView.currentIndex = -1
+                    stackView.pop();
+                    listView.currentIndex = -1;
                 } else
-                    drawer.open()
+                    drawer.open();
             }
         }
 
@@ -36,7 +38,7 @@ ApplicationWindow {
 
     Drawer {
         id: drawer
-        width: Math.max(window.width * 0.7 , 300)
+        width: Math.max(window.width * 0.7, 300)
         height: window.height
 
         ListView {
@@ -51,9 +53,9 @@ ApplicationWindow {
                 onClicked: openPage("Simple")
 
                 function openPage(type) {
-                    listView.currentIndex = index
-                    stackView.push("qrc:/Examples/" + model.title + "/" + type + ".qml")
-                    drawer.close()
+                    listView.currentIndex = index;
+                    stackView.push("qrc:/Examples/" + model.title + "/" + type + ".qml");
+                    drawer.close();
                 }
 
                 RowLayout {
@@ -65,7 +67,7 @@ ApplicationWindow {
                         Layout.minimumWidth: 120
                         spacing: 10
 
-                        QTypes.Icon {
+                        QBootStrap.Icon {
                             name: model.icon
                             color: Material.primary
                             side: 20
@@ -78,7 +80,7 @@ ApplicationWindow {
                     }
 
                     Label {
-                        text:qsTr("Simple")
+                        text: qsTr("Simple")
                         font.pixelSize: 12
                         font.bold: true
                     }
@@ -100,15 +102,33 @@ ApplicationWindow {
 
             ListModel {
                 id: listModelMenu
-                ListElement { title: qsTr("SearchModel");     icon: "search" }
-                ListElement { title: qsTr("Accordion");       icon: "view_day" }
-                ListElement { title: qsTr("Badge");           icon: "fiber_new" }
-                ListElement { title: qsTr("DropDown");        icon: "arrow_drop_down_circle" }
-                ListElement { title: qsTr("ImageLoader");     icon: "rotate_right" }
-                ListElement { title: qsTr("Icon");            icon: "crop_original" }
+                ListElement {
+                    title: qsTr("SearchModel")
+                    icon: "search"
+                }
+                ListElement {
+                    title: qsTr("Accordion")
+                    icon: "view_day"
+                }
+                ListElement {
+                    title: qsTr("Badge")
+                    icon: "fiber_new"
+                }
+                ListElement {
+                    title: qsTr("DropDown")
+                    icon: "arrow_drop_down_circle"
+                }
+                ListElement {
+                    title: qsTr("ImageLoader")
+                    icon: "rotate_right"
+                }
+                ListElement {
+                    title: qsTr("Icon")
+                    icon: "crop_original"
+                }
             }
 
-            ScrollIndicator.vertical: ScrollIndicator { }
+            ScrollIndicator.vertical: ScrollIndicator {}
         }
     }
 
@@ -121,7 +141,7 @@ ApplicationWindow {
             Row {
                 anchors.centerIn: parent
 
-                QTypes.Icon {
+                QBootStrap.Icon {
                     name: "view_quilt"
                     color: Material.primary
                     side: logo.implicitHeight
@@ -134,7 +154,7 @@ ApplicationWindow {
                     leftPadding: 1
                     elide: Label.ElideRight
                     color: Material.primary
-                    text: "QTypes"
+                    text: "QBootStrap"
                 }
             }
         }

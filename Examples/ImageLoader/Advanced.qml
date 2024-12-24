@@ -1,11 +1,11 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.12
-
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
 // ###########################################
-// [1][ADD] - import QTypes
-import "qrc:/QTypes" as QTypes
+// [1][ADD] - import QBootStrap
+import "qrc:/QBootStrap" as QBootStrap
+
 // [END] #####################################
 
 ColumnLayout {
@@ -20,13 +20,13 @@ ColumnLayout {
         // ###########################################
         // [2][ADD] - ImageSync
 
-        QTypes.ImageLoader {
+        QBootStrap.ImageLoader {
             width: 60
             height: 60
             source: "https://upload.wik_imedia.org/wikipedia/commons/a/a0/%27Greeley_Panorama%27_from_Opportunity%27s_Fifth_Martian_Winter%2C_PIA15689.jpg"
         }
 
-        QTypes.ImageLoader {
+        QBootStrap.ImageLoader {
             width: 60
             height: 60
             // change the default error component to show some image if error
@@ -34,7 +34,7 @@ ColumnLayout {
             source: "https://upload.wik_imedia.org/wikipedia/commons/a/a0/%27Greeley_Panorama%27_from_Opportunity%27s_Fifth_Martian_Winter%2C_PIA15689.jpg"
         }
 
-        QTypes.ImageLoader {
+        QBootStrap.ImageLoader {
             width: 60
             height: 60
             // change base color of default error Component
@@ -42,7 +42,7 @@ ColumnLayout {
             source: "https://upload.wik_imedia.org/wikipedia/commons/a/a0/%27Greeley_Panorama%27_from_Opportunity%27s_Fifth_Martian_Winter%2C_PIA15689.jpg"
         }
 
-        QTypes.ImageLoader {
+        QBootStrap.ImageLoader {
             width: 60
             height: 60
             // replace the default error component
@@ -52,26 +52,25 @@ ColumnLayout {
             source: "https://upload.wiki_media.org/wikipedia/commons/2/28/%27Calypso%27_Panorama_of_Spirit%27s_View_from_%27Troy%27.jpg"
         }
 
-        QTypes.ImageLoader {
+        QBootStrap.ImageLoader {
             width: 60
             height: 60
             // replace the default error component
             loadingComponent: Text {
                 text: qsTr("Loading..")
                 OpacityAnimator {
-                        target: parent
-                        from: 0;
-                        to: 1;
-                        duration: 1000
-                        running: true
-                        loops: -1
-                    }
+                    target: parent
+                    from: 0
+                    to: 1
+                    duration: 1000
+                    running: true
+                    loops: -1
+                }
             }
             source: "https://upload.wikimedia.org/wikipedia/commons/2/28/%27Calypso%27_Panorama_of_Spirit%27s_View_from_%27Troy%27.jpg"
         }
 
-
-        QTypes.ImageLoader {
+        QBootStrap.ImageLoader {
             width: 100
             height: 100
             source: "https://upload.wikimedia.org/wikipedia/commons/2/28/%27Calypso%27_Panorama_of_Spirit%27s_View_from_%27Troy%27.jpg"

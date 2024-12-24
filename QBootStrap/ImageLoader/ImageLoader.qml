@@ -1,6 +1,6 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.4
-import QtQuick.Controls.Material 2.12
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
 
 /*!
     \qmltype ImageLoader
@@ -8,7 +8,7 @@ import QtQuick.Controls.Material 2.12
 
     For example:
     \qml
-        QTypes.ImageLoader {
+        QBootStrap.ImageLoader {
             anchors.fill: parent
             source: "https://upload.wikimedia.org/wikipedia/commons/a/a0/%27Greeley_Panorama%27_from_Opportunity%27s_Fifth_Martian_Winter%2C_PIA15689.jpg"
         }
@@ -25,7 +25,7 @@ Image {
           \qmlproperty array SearchModel::version
           string with version
       */
-    readonly property string version: "1.0.0"
+    readonly property string version: "2.0.0"
 
     // [properties] ----------------------------------------------
 
@@ -66,14 +66,13 @@ Image {
     property color loadingComponentProgressColor: Material.color(Material.Grey)
 
     onStatusChanged: {
-        imageStatusLoader.sourceComponent = undefined
+        imageStatusLoader.sourceComponent = undefined;
 
         if (root.status === Image.Loading)
-            imageStatusLoader.sourceComponent = loadingComponent
+            imageStatusLoader.sourceComponent = loadingComponent;
 
         if (root.status === Image.Error)
-            imageStatusLoader.sourceComponent = (errorImageSource != ""  ?  __private.errorImageSourceComponent : errorComponent)
-
+            imageStatusLoader.sourceComponent = (errorImageSource != "" ? __private.errorImageSourceComponent : errorComponent);
     }
 
     Loader {
@@ -89,8 +88,8 @@ Image {
 
         function checkSize() {
             if (!width && !height) {
-                root.width = 100
-                root.height = 100
+                root.width = 100;
+                root.height = 100;
             }
         }
 
@@ -116,7 +115,7 @@ Image {
         property Component errorComponent: Control {
             id: ctrl
             clip: true
-            background: Rectangle{
+            background: Rectangle {
                 border {
                     color: errorComponentColor
                     width: ctrl.width * 0.05
@@ -139,7 +138,7 @@ Image {
                         Repeater {
                             model: 2
                             Rectangle {
-                                width:  background.border.width
+                                width: background.border.width
                                 height: parent.height
                                 color: errorComponentColor
                                 rotation: index == 0 ? -45 : 45

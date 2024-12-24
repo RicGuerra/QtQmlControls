@@ -1,8 +1,9 @@
-import QtQuick 2.0
-import QtGraphicalEffects 1.12
-import QtQuick.Controls 2.5
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Controls.impl
 
-import "qrc:/QTypes" as QTypes
+import "qrc:/QBootStrap" as QBootStrap
 
 /*!
     \qmltype Icon
@@ -10,7 +11,7 @@ import "qrc:/QTypes" as QTypes
 
     For example:
     \qml
-    QTypes.Icon {
+    QBootStrap.Icon {
         name: "clear"
     }
     \endqml
@@ -27,7 +28,7 @@ Item {
           \qmlproperty array Icon::version
           string with version
       */
-    readonly property string version: "1.0.0"
+    readonly property string version: "2.0.0"
 
     /*!
           \qmlproperty real Icon::side
@@ -54,8 +55,8 @@ Item {
     onSideChanged: __private.updateSide()
 
     Component.onCompleted: {
-        __private.updateSide()
-        __private.updateIcon()
+        __private.updateSide();
+        __private.updateIcon();
     }
 
     Loader {
@@ -68,27 +69,25 @@ Item {
     QtObject {
         id: __private
 
-        property string file: "qrc:/Icon/png/" + (side > 24 ? "48" : "24") + "/" + name +".png"
+        property string file: "qrc:/Icon/png/" + (side > 24 ? "48" : "24") + "/" + name + ".png"
 
         function updateSide() {
             if (side == 0)
-                side = Math.max(Math.min(root.parent.width, root.parent.height), 16)
+                side = Math.max(Math.min(root.parent.width, root.parent.height), 16);
         }
 
         function updateIcon() {
-            if (root.parent && name.length > 0 && side > 0)
-            {
+            if (root.parent && name.length > 0 && side > 0) {
                 if (root.parent instanceof AbstractButton) {
-                    root.parent.icon.source = ""
-                    root.parent.icon.source = __private.file
-                    root.parent.icon.color = root.color
+                    root.parent.icon.source = "";
+                    root.parent.icon.source = __private.file;
+                    root.parent.icon.color = root.color;
                 } else {
-                    loader.sourceComponent  = undefined
-                    loader.sourceComponent = maskIconComponent
+                    loader.sourceComponent = undefined;
+                    loader.sourceComponent = maskIconComponent;
                 }
             }
         }
-
 
         property Component maskIconComponent: Item {
             Rectangle {
@@ -99,19 +98,19 @@ Item {
                 color: root.color
             }
 
-            Image {
+            IconImage {
                 id: maskIcon
-                source: __private.file
                 anchors.fill: parent
                 smooth: true
-                visible: false
+                source: __private.file
+                color: root.color
             }
 
-            OpacityMask {
-                anchors.fill: iconColor
-                source: iconColor
-                maskSource: maskIcon
-            }
+            // OpacityMask {
+            //     anchors.fill: iconColor
+            //     source: iconColor
+            //     maskSource: maskIcon
+            // }
         }
     }
 }

@@ -1,13 +1,13 @@
-# QTypes
+# QBootStrap
+
 ### Introduction
-QType is a set of Object Types through QML.
-Is a easily way import a libary of Types in your own QML, provides many visual
-components and features to manipulate data.
+QBootStrap is a QML framework, provides many visual components and features to manipulate data.
+Is a easily way import a libary of Types in your own QML.
 
 # Getting started
 
 ## Qt version
-Requires Qt 5.12 or highter
+Requires Qt 6.2 or highter
 
 ## Object Types
 
@@ -24,7 +24,7 @@ Requires Qt 5.12 or highter
 Quick start
 =====
 
- - Copy the folder QTypes/ to root of your project
+ - Copy the folder QBootStrap/ to root of your project
  - Pro file Dependencies:
 ```c#
     QT += quickcontrols2

@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/QTypes">
+    <qresource prefix="/QBootStrap">
         <file alias="Accordion.qml">Accordion/Accordion.qml</file>
         <file alias="Badge.qml">Badge/Badge.qml</file>
         <file alias="DropDown.qml">DropDown/DropDown.qml</file>

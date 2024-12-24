@@ -1,9 +1,7 @@
-import QtQuick 2.0
-import QtQuick 2.12
-import QtQml.Models 2.12
-import QtQuick.Controls 1.4
-import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.12
+import QtQuick
+import QtQml.Models
+import QtQuick.Controls
+import QtQuick.Controls.Material
 
 /*!
     \qmltype Accordion
@@ -14,7 +12,7 @@ import QtQuick.Controls.Material 2.12
 
     For example:
     \qml
-        QTypes.Accordion {
+        QBootStrap.Accordion {
 
             model: ListModel {
                 ListElement { title: "What is Lorem Ipsum?"; content: "Lorem <b>Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." }
@@ -39,7 +37,7 @@ ListView {
           \qmlproperty array Accordion::version
           string with version
       */
-    readonly property string version: "1.0.0"
+    readonly property string version: "2.0.0"
 
     /*!
           \qmlproperty string Accordion::headerComponent
@@ -89,11 +87,13 @@ ListView {
     QtObject {
         id: __private
 
-        property Component empty: Item { }
+        property Component empty: Item {}
 
         property Component header: Control {
             padding: 10
-            background: Rectangle{ color: selected ? Material.primary : Material.background }
+            background: Rectangle {
+                color: selected ? Material.primary : Material.background
+            }
             contentItem: Text {
                 wrapMode: Text.WordWrap
                 color: Material.foreground
@@ -102,7 +102,12 @@ ListView {
         }
 
         property Component body: Control {
-            background: Rectangle{ border{ color: Material.primary; width: 1 }}
+            background: Rectangle {
+                border {
+                    color: Material.primary
+                    width: 1
+                }
+            }
             padding: 10
             contentItem: Text {
                 wrapMode: Text.Wrap
@@ -112,4 +117,3 @@ ListView {
         }
     }
 }
-

@@ -1,12 +1,12 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.12
-import QtQuick.Controls 2.12
-
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Controls
 
 // ###########################################
 // [1][ADD] - import QtQmlPlugins
-import "qrc:/QTypes" as QTypes
+import "qrc:/QBootStrap" as QBootStrap
+
 // [END] #####################################
 
 Item {
@@ -17,16 +17,16 @@ Item {
         anchors.centerIn: parent
         spacing: 20
 
-        QTypes.Icon {
+        QBootStrap.Icon {
             side: 24
             name: "home_work" // get the title of icon in https://www.material.io/resources/icons/
         }
 
-        QTypes.Icon {
+        QBootStrap.Icon {
             name: "clear"
         }
 
-        QTypes.Icon {
+        QBootStrap.Icon {
             side: 24
             name: "add_circle"
             color: "red"

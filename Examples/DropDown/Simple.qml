@@ -1,10 +1,10 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-
+import QtQuick
+import QtQuick.Controls
 
 // ###########################################
 // [1][ADD] - import QtQmlPlugins
-import "qrc:/QTypes" as QTypes
+import "qrc:/QBootStrap" as QBootStrap
+
 // [END] #####################################
 
 Rectangle {
@@ -12,19 +12,17 @@ Rectangle {
     // ###########################################
     // [2][ADD] - DropDown
 
-    Button{
+    Button {
         anchors.centerIn: parent
         text: "Dropdown button"
         onClicked: dropDown1.toggle()
 
-        QTypes.DropDown {
+        QBootStrap.DropDown {
             id: dropDown1
 
             MenuItem {
                 text: "New..."
-                onTriggered: {
-
-                }
+                onTriggered: {}
             }
 
             MenuItem {
@@ -34,7 +32,7 @@ Rectangle {
                 text: "Save"
             }
 
-            MenuSeparator{}
+            MenuSeparator {}
 
             MenuItem {
                 text: "Preferences..."

@@ -1,9 +1,9 @@
-import QtQuick 2.0
-import QtQuick.Controls 2.5
-import QtQuick.Controls.Material 2.12
-import QtQuick.Layouts 1.12
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Controls.Material
 
-import "qrc:/QTypes" as QTypes
+import "qrc:/QBootStrap" as QBootStrap
 
 /*!
     \qmltype Badge
@@ -37,7 +37,7 @@ Control {
           \qmlproperty array Badge::version
           string with version
       */
-    readonly property string version: "1.0.0"
+    readonly property string version: "2.0.0"
 
     /*!
           \qmlproperty color Badge::color
@@ -83,7 +83,7 @@ Control {
 
     /*!
         \qmlproperty alias Badge::icon
-        alias to Component type QTypes.Icon
+        alias to Component type QBootStrap.Icon
     */
     property alias icon: icon
 
@@ -132,7 +132,7 @@ Control {
             }
         }
 
-        QTypes.Icon {
+        QBootStrap.Icon {
             id: icon
             Layout.alignment: Qt.AlignVCenter
             visible: name.length > 0
@@ -234,4 +234,3 @@ Control {
         property color counterLabelColor: Material.primary
     }
 }
-

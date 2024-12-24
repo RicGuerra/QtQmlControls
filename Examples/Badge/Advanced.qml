@@ -1,12 +1,12 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.12
-import QtQuick.Controls 2.12
-
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Controls
 
 // ###########################################
 // [1][ADD] - import QtQmlPlugins
-import "qrc:/QTypes" as QTypes
+import "qrc:/QBootStrap" as QBootStrap
+
 // [END] #####################################
 
 ColumnLayout {
@@ -19,59 +19,57 @@ ColumnLayout {
         // ###########################################
         // [2][ADD] - Badge
 
-        QTypes.Badge {
+        QBootStrap.Badge {
             text: "Default"
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             text: "Primary"
             state: "primary"
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             text: "Secondary"
             state: "secondary"
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             text: "Success"
             state: "success"
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             text: "Danger"
             state: "danger"
             counterText: "23"
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             text: "Warning"
             state: "warning"
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             text: "Info"
             state: "info"
 
             icon.name: "info"
             icon.color: "#FFF"
-
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             text: "Light"
             state: "light"
 
             LayoutMirroring.enabled: true
             icon.name: "help"
             icon.color: "#000"
-
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             text: "Dark"
             state: "dark"
             counterText: "23"
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             label.text: "Pill Badge"
             state: "info"
             pill: true                    // enable badge more rounded
             counterLabel.text: "23"
         }
-        QTypes.Badge {
+        QBootStrap.Badge {
             radius: 0                     // badge radius
             color: "#FF5722"              // badge background color
             label.text: "Coffees"         // Same like alias text: "Advanced"
@@ -89,7 +87,7 @@ ColumnLayout {
             icon.color: "#FFF"
         }
 
-        QTypes.Badge {
+        QBootStrap.Badge {
             label.text: "My Mini advanced"
             label.font.bold: true
             label.font.pixelSize: 10
